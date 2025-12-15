@@ -2,17 +2,18 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Actor extends Person {
-    int height;
 
-    Actor(String name, String surname, int height, Gender gender) {
+    private final int height;
+
+    public Actor(String name, String surname, int height, Gender gender) {
         super(name, surname, gender);
         this.height = height;
     }
 
     @Override
     public String toString() {
-        return name +
-                " " + surname +
+        return super.getName() +
+                " " + super.getSurname() +
                 " (" + height +
                 ")";
     }
@@ -21,20 +22,20 @@ public class Actor extends Person {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Actor actor = (Actor) o;
-        return ((height == actor.height) && (name.equals(actor.name)) && (surname.equals(actor.surname)));
+        return ((height == actor.height) && (super.getName().equals(actor.getName())) && (super.getSurname().equals(actor.getSurname())));
     }
 
     @Override
     public int hashCode() {
         int hash = 17;
 
-        if (name != null) {
-            hash = hash + name.hashCode();
+        if (super.getName() != null) {
+            hash = hash + super.getName().hashCode();
         }
         hash = hash * 31;
 
-        if (surname != null) {
-            hash = hash + surname.hashCode();
+        if (super.getSurname() != null) {
+            hash = hash + super.getSurname().hashCode();
         }
         hash = hash * 31;
 

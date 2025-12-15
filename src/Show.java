@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Show {
-    String title;
-    int duration;
-    Director director;
-    ArrayList<Actor> listOfActors;
+    protected String title;
+    protected int duration;
+    protected Director director;
+    protected ArrayList<Actor> listOfActors;
 
     public Show(String title, int duration, Director director, ArrayList<Actor> listOfActors) {
         this.title = title;
@@ -33,7 +33,7 @@ public class Show {
     public void replaceActor (Actor actor, String surname) {
         boolean isThere = false;
         for (Actor i : listOfActors) {
-            if (surname.equals(i.surname)) {
+            if (surname.equals(i.getSurname())) {
                 listOfActors.remove(i);
                 isThere = true;
             }
